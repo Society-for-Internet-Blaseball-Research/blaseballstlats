@@ -9,7 +9,8 @@ var app = new Vue({
 		failed_teams: false,
 		colourset: "default",
 		sort_ord: 'asc',
-		sort_cat: ''
+		sort_cat: '',
+		long_stlats: false
 	},
 	computed: {
 		prop_fulllist: function () { //every prop organised by category, in an array

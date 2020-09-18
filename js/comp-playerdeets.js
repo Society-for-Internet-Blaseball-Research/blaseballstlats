@@ -1,5 +1,5 @@
 Vue.component("player-deets", {
-	props: ['player'],
+	props: ['player', 'long_stlats'],
 	//data: function () {return {console: console}},
 	template: `
 		<div class="player">
@@ -9,7 +9,7 @@ Vue.component("player-deets", {
 				{{player.stars}}*
 			</span>
 			<span class="prop" :class="[divineProp(player.props[prop], prop), doPropBorder(prop)]" v-for="prop in this.$root.prop_fulllist">
-				{{roundNicely(player.props[prop])}}
+				{{roundNicely(player.props[prop], long_stlats)}}
 			</span>
 		</div>
 	`,
@@ -17,11 +17,11 @@ Vue.component("player-deets", {
 		doPropBorder: function(prop) { //proxy
 			return this.$root.doPropBorder(prop)
 		},
-		roundNicely: function(prop) { //disdplay a prop nice and good
+		roundNicely: function(prop, long_stlats) { //disdplay a prop nice and good
 			if (typeof(prop) == "boolean") return prop ? "yes" : "no"
 			else if (prop == Math.round(prop)) return prop
 			else if (!prop) return "undef"
-			else return prop.toFixed(3)
+			else return long_stlats ? prop.toFixed(16) : prop.toFixed(3)
 		},
 		divineProp: function(propv, propName) {
 			var prop = propv;

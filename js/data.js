@@ -38,8 +38,8 @@ const prop_flags = {
 };
 const base_tragicness = 0.1; //tragicness went up in season 3 so this is here if it goes up again
 
-const url_prefix = "https://blaseballcors.herokuapp.com/"
+const url_prefix = "https://cors-proxy.blaseball-reference.com/database/"
 const url = {
-	players: url_prefix + "https://blaseball.com/database/players?ids=",
-	teams: url_prefix + "https://blaseball.com/database/allTeams"
+	players: url_prefix + "players?ids=",
+	teams: url_prefix + "allTeams"
 }
